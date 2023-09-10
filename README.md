@@ -7,3 +7,5 @@ This repo is the MES system developed for the machines in the factory to communi
 - .Net Core 5.0 with MVC architecture
 - Arduino
 - MSSQL
+
+[document.pdf](/document.pdf)
