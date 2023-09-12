@@ -1,0 +1,28 @@
+﻿@model NurusMES.Data.Models.Birim
+
+@{
+    ViewData["Title"] = "GetBirim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Birim Düzenleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("UpdateBirim", "Birim", FormMethod.Post))
+{
+    @Html.Label(" Birim ID ")
+    <br />
+    @Html.TextBoxFor(x=>x.BirimID, new { @class = "form-control", @readonly="true" })
+
+    <br />
+
+    @Html.Label(" Birim Adı ")
+    <br />
+    @Html.TextBoxFor(x=>x.BirimAdi, new { @class = "form-control"})
+
+
+    <br />
+
+    <button class="btn btn-success"> Kaydet </button>
+
+}

@@ -1,0 +1,39 @@
+﻿@model NurusMES.Data.Models.Personel
+
+@{
+    ViewData["Title"] = "AddPersonel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Ekleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("AddPersonel", "Personel", FormMethod.Post))
+{
+    @Html.Label(" Personel Adı Soyadı ")
+    <br />
+    @Html.TextBoxFor(x=>x.PersonelAdSoyad , new { @class = "form-control"})
+
+    <br />
+    @Html.Label(" Personel Sifre ")
+    <br />
+    @Html.PasswordFor(x=>x.Sifre , new { @class = "form-control"})
+
+    <br />
+    // Personel controllerdan aldığımız Makine viewbag i buraya parametre olarak veririz
+    @Html.Label(" Birim Adı ")
+    @Html.DropDownListFor(y=>y.BirimID,(List<SelectListItem>)ViewBag.v5, new { @class = "form-control"})
+
+    <br />
+    // Personel controllerdan aldığımız Makine viewbag i buraya parametre olarak veririz
+    @Html.Label(" Makine Adı ")
+    @Html.DropDownListFor(x=>x.MakineID,(List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-success"> Kaydet </button>
+
+    
+
+
+}

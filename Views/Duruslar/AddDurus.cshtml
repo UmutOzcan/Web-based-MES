@@ -1,0 +1,62 @@
+﻿@model NurusMES.Data.Models.Duruslar
+
+@{
+    ViewData["Title"] = "AddDurus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Duruş Ekleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("AddDurus", "Durus", FormMethod.Post))
+{
+    @Html.Label(" Personel Adı Soyadı ")
+    <br />
+    @Html.DropDownListFor(y=>y.PersonelID,(List<SelectListItem>)ViewBag.PersonelValues, new { @class = "form-control"})
+
+    <br />
+
+    // Durus controllerdan aldığımız Birim viewbag i buraya parametre olarak veririz
+    @Html.Label(" Birim Adı ")
+    @Html.DropDownListFor(y=>y.BirimID,(List<SelectListItem>)ViewBag.birimValues, new { @class = "form-control"})
+
+    <br />
+    // Durus controllerdan aldığımız Makine viewbag i buraya parametre olarak veririz
+    @Html.Label(" Makine Adı ")
+    @Html.DropDownListFor(x=>x.MakineID,(List<SelectListItem>)ViewBag.makineValues, new { @class = "form-control" })
+
+    <br />
+
+    // Durus controllerdan aldığımız Makine viewbag i buraya parametre olarak veririz
+    @Html.Label(" Ana Duruş Türü ")
+    @Html.DropDownListFor(x=>x.DurusID,(List<SelectListItem>)ViewBag.AnaDurusValues, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label(" Duruş Adı ")
+    <br />
+    @Html.TextBoxFor(x=>x.DurusAdi , new { @class = "form-control"})
+
+    <br />
+
+    @Html.Label(" Ana Duruş Nedeni ")
+    <br />
+    @Html.TextBoxFor(x=>x.DurusNedeni , new { @class = "form-control"})
+
+    <br />
+
+    @Html.Label(" Duruş Nedeni Detay ")
+    <br />
+    @Html.TextBoxFor(x=>x.DurusNedeniDetay , new { @class = "form-control"})
+
+    <br />
+
+    <button class="btn btn-success"> Kaydet </button>
+
+    <br />
+    <br />
+
+
+
+
+}

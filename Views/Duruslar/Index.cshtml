@@ -1,0 +1,50 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<NurusMES.Data.Models.Duruslar>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Duruslar Listesi </h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th> Duruş ID </th>
+        <th> Duruş Adı </th>
+        <th> Personel ID </th>
+        <th> Makine ID </th>
+        <th> Birim ID </th>
+        <th> Durus Turu </th>
+        <th> Durus Nedeni </th>
+        <th> Durus Nedeni Detay </th>
+        <th> Varsayılan Süre </th>
+        <th> Delete </th>
+        <th> Update </th>
+        <th> Info </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th> @x.DurusID </th>
+            <td> @x.DurusAdi </td>
+            <td> @x.PersonelID </td>
+            <td> @x.MakineID </td>
+            <td> @x.BirimID </td>
+            <td> @x.DurusTuru </td>
+            <td> @x.DurusNedeni </td>
+            <td> @x.DurusNedeniDetay </td>
+            <td> @x.VarsayilanSure </td>
+            <td> <a href="#" class="btn btn-danger"> Delete </a></td> <!--  /Durus/RemoveDurus/@x.DurusID   -->
+            <td> <a href="#" class="btn btn-success"> Update </a></td> <!--  /Durus/GetDursu/@x.DurusID  -->
+            <td> <a href="#" class="btn btn-info"> Info </a></td>
+
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new { page }))
+
+<a href="/Duruslar/AddDurus/" class="btn btn-warning"> Durus Ekle</a>

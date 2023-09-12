@@ -1,0 +1,22 @@
+﻿@model NurusMES.Data.Models.Birim
+
+@{
+    ViewData["Title"] = "AddBirim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Birim Ekleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("AddBirim", "Birim", FormMethod.Post))
+{
+    @Html.Label(" Birim Adı ")
+    <br />
+    @Html.TextBoxFor(x=>x.BirimAdi, new { @class = "form-control"})
+    
+
+    <br />
+
+    <button class="btn btn-success" > Kaydet </button>
+
+}

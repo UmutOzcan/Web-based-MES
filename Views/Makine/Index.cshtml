@@ -1,0 +1,38 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<NurusMES.Data.Models.Makine>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Makine Listesi </h2>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th> ID </th>
+        <th> Makine Adı </th>
+        <th> Birim Adı </th>
+        <th> Delete </th>
+        <th> Update </th>
+        <th> Info </th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th> @x.MakineID </th>
+            <td> @x.MakineAdi </td>
+            <td> @x.Birim.BirimAdi </td>
+            <td> <a href="/Makine/RemoveMakine/@x.MakineID" class="btn btn-danger"> Delete </a></td>
+            <td> <a href="/Makine/GetMakine/@x.MakineID" class="btn btn-success"> Update </a></td>
+            <td> <a href="#" class="btn btn-info"> Info </a></td>
+
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new { page }))
+
+<a href="/Makine/AddMakine" class="btn btn-warning"> Makine Ekle</a>

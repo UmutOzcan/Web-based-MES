@@ -1,0 +1,42 @@
+﻿@model NurusMES.Data.Models.Personel
+
+@{
+    ViewData["Title"] = "GetPersonel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Personel Düzenleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post))
+{
+    @Html.Label(" Personel ID ")
+    <br />
+    @Html.TextBoxFor(x=>x.PersonelID, new { @class = "form-control" , @readonly="true"})
+
+    <br />
+
+    @Html.Label(" Personel Adı ")
+    <br />
+    @Html.TextBoxFor(x=>x.PersonelAdSoyad, new { @class = "form-control"})
+
+    <br />
+
+    @Html.Label(" Birim Adı ")
+    <br />
+    @Html.DropDownListFor(x=>x.BirimID,(List<SelectListItem>)ViewBag.v2, new { @class = "form-control"})
+
+    <br />
+
+    @Html.Label(" Makine Adı ")
+    <br />
+    @Html.DropDownListFor(x=>x.MakineID,(List<SelectListItem>)ViewBag.v1, new { @class = "form-control"})
+
+    
+
+
+    <br />
+
+    <button class="btn btn-success"> Kaydet </button>
+
+}

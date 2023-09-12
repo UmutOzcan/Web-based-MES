@@ -1,0 +1,32 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<NurusMES.Data.Models.Arduino>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Makine Durumları </h2>
+<br />
+
+
+
+<table class="table table-bordered">
+
+
+    @foreach (var item in ViewBag.liste)
+    {
+        <tr>
+            <td> @item </td>
+        </tr>
+    }
+
+    
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new { page }))
+
+
+<a href="/Arduino/Index/" class="btn btn-warning"> Yenile </a>

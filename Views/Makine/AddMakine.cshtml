@@ -1,0 +1,27 @@
+﻿@model NurusMES.Data.Models.Makine
+
+@{
+    ViewData["Title"] = "AddMakine";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Makine Ekleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("AddMakine", "Makine", FormMethod.Post))
+{
+    @Html.Label(" Makine Adı ")
+    <br />
+    @Html.TextBoxFor(x => x.MakineAdi, new { @class = "form-control"})
+
+    <br />
+    // Makine controllerdan aldığımız viewbag i buraya parametre olarak veririz
+    @Html.Label(" Birim Adı ")
+    @Html.DropDownListFor(x => x.BirimID, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-success"> Kaydet </button>
+
+}
+

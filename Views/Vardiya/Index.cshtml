@@ -1,0 +1,40 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+
+@model IPagedList<NurusMES.Data.Models.Vardiya>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Vardiyalar </h2>
+<br />
+
+
+<table class="table table-bordered">
+    <tr>
+        
+        <th> Vardiya Adı </th>
+        <th> Vardiya Başlangıç </th>
+        <th> Vardiya Bitis </th>
+        <th> İs Emri ID </th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            
+            <td> @x.VardiyaAdi </td>
+            <td> @x.VardiyaBaslangic </td>
+            <td> @x.VardiyaBaslangic </td>
+            <td>  </td>
+
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,page=>Url.Action("Index", new { page }))
+
+
+<a href="#" class="btn btn-warning"> Vardiya Ekle </a>
